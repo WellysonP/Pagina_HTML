@@ -1,12 +1,95 @@
-<p>
-    <img src="https://img2.gratispng.com/20180821/wti/kisspng-league-of-legends-logo-video-games-brand-those-crazy-south-africans-7-15-14-5b7c8de50c5da9.9445392215348894450507.jpg" 
-    alt="LOL"
-    height="240" width="600"
-    title="League of Legends">
-</p>
-<p>
-    <img src="https://media1.giphy.com/media/kxbIch2AXOKnbra74z/giphy.gif" 
-    alt="Cait"
-    height="270" width="480"
-    title="Xerife Cait">
-</p>
+<div wm-slider>
+    <p>
+        <img src="https://img2.gratispng.com/20180821/wti/kisspng-league-of-legends-logo-video-games-brand-those-crazy-south-africans-7-15-14-5b7c8de50c5da9.9445392215348894450507.jpg" 
+        alt="LOL"
+        height="240" width="600"
+        title="League of Legends">
+    </p>
+    <p>
+        <img src="https://media1.giphy.com/media/kxbIch2AXOKnbra74z/giphy.gif" 
+        alt="Cait"
+        height="270" width="480"
+        title="Xerife Cait">
+    </p>
+    
+    <p class="circular">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png" 
+            alt="LOL"
+            width="150"
+            >
+    </p>
+    
+    <p class="texto">
+        <img src="https://static.vecteezy.com/system/resources/previews/001/191/178/non_2x/flower-floral-png.png" 
+            alt="Texto"
+            width="50"
+            lign="left"
+        >
+        werfwerwerwerwerkjioldj 
+        qjiowd iohqweoqwuioehqw 
+        uhwioq qwheuihqw eqw qwhue oqwhe  
+        qhweiohqwioehqwioe qwieh qieh qiwheiqwheuihqw 
+        johdikqhwjiwbnedqw
+        dqwjdnkjqwbdq
+        wdqkwj q
+        wdqw qwjneiqwj klwejdiklejw
+        eokrelnf
+    </p>
+</div>
+
+<style>
+    p{
+        position: absolute;
+        display: none;
+    }
+    .circular{
+        width: 513px;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .texto{
+        width: 400px;
+    }
+
+    .texto img{
+        margin-right: 12px;
+    }
+</style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback){
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim){
+            elem.style.left = novoInicio + 'px'
+            setTimeout(()=> mover(elem,novoInicio,fim, passo,callback),7)
+        } else{
+            callback()
+        }
+    }
+
+    function slider(){
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides,slides[0])
+    }
+
+    function exibirSlide(slides, slide){
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+        mover(slide, inicio, fim, 5, ()=>{
+            slide.style.display = "none"
+            exibirSlide(slides, getProximo(slides,slide))
+        })
+    }
+
+    function getProximo(lista, atual){
+        const i = lista.indexOf(atual)+1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+
+    slider()
+</script>
