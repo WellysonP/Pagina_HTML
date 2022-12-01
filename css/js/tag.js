@@ -12,6 +12,7 @@ const colors ={
     form: "#9f6581",
     body: "#25b6da",
     padrao: "#616161",
+    header: "#545454",
     get(tag){
         return this[tag] ? this[tag] : this[this.padrao]
     }

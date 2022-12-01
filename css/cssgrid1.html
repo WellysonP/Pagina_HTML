@@ -12,6 +12,7 @@
             margin: 20px;
             height: calc(100% - 40px);
             background-color: lightgray;
+            
         }
         
         div {
@@ -21,6 +22,18 @@
             font-size: 30px;
             border: solid 5px dodgerblue;
             background: #fff;
+        }
+        body{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
+            grid-template-columns: repeat(3, 33.33%);
+        }
+        .d8{
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 5;
         }
     </style>
 </head>
